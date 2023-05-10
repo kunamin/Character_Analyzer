@@ -1,6 +1,7 @@
 package org.java.Character_Analyzer;
 
 import java.util.Scanner;
+import java.util.Arrays;
 import java.io.*;
 
 public class Analyzer {
@@ -14,8 +15,11 @@ public class Analyzer {
 			File file = new File("test.txt");
 			Scanner sc = new Scanner(file);
 			while(sc.hasNextLine()){
-				String word = sc.nextLine();
-				char []c = word.toCharArray();
+				String word = sc.nextLine().replaceAll("\\d{4}\\. \\d{1,2}\\. \\d{1,2}\\. (오후|오전) \\d{1,2}:\\d{1,2}\\, [가-힣]+(?:\\(.*\\))? : ", "");
+				//String word = sc.nextLine().replaceAll("\\d{4}. \\d{1,2}. \\d{1,2}. [오후|오전]? \\d{1,2}:\\d{1,2}\\, [가-힣]+ (?:\\(.*\\)) : ", "");
+				System.out.println(word);
+				char[] c = word.toCharArray();
+				
 				for(int w = 0; w<c.length; w++){
 					int n  = (int)c[w];
 					for(int i = 0; i <=0x12; i++){
