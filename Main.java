@@ -8,9 +8,9 @@ public class Main {
 	public static String str1;
 	public static String str2;
 	public static double time;
-	public static String main_version = "2.4";
-	public static String Version = "2.4";
-	public static String Developed_Date = "2017-12-20";
+	public static String main_version = "2.5";
+	public static String Version = "2.5";
+	public static String Developed_Date = "2023-05-11";
 	
 	public static void main(String[] args) {
 		long a,b;
