@@ -45,6 +45,7 @@ public class PrintCSV {
 	}
 	
 	public static void printCSV(String trying){
+		sum += Analyzer.onlyCon;
 		for (int p = 0; p<=20; p++){
 			sum = sum + Analyzer.Col[p];
 		}
@@ -57,7 +58,7 @@ public class PrintCSV {
 			out.write("Date Collected, " + Main.str1); out.newLine();
 			out.write("Time taken, " + Main.time); out.newLine();
 			out.newLine();
-			out.write("ÀÚÀ½, È½¼ö, , ,¸ðÀ½, È½¼ö"); out.newLine();
+			out.write("ìžìŒ, í•©ê³„, , ,ëª¨ìŒ, í•©ê³„"); out.newLine();
 			for(int t = 0; t<=29; t++){
 				char Conx = (char)(0x3131+t);
 				char Colx = (char)(0x314F+t);
@@ -69,7 +70,7 @@ public class PrintCSV {
 				}
 			}
 			out.newLine();
-			out.write("ÇÕ°è, , " + sum);
+			out.write("ê¸€ìžìˆ˜, , " + sum);
 			out.close();
 		}catch (IOException e){
 			System.err.println(e);

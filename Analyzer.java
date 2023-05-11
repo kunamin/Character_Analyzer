@@ -5,6 +5,7 @@ import java.io.*;
 
 public class Analyzer {
 	
+	public static int onlyCon = 0;
 	public static int[] Con1 = new int[19];
 	public static int[] Col = new int[21];
 	public static int[] Con2 = new int[27];
@@ -19,6 +20,8 @@ public class Analyzer {
 				char[] c = word.toCharArray();
 				for(int w = 0; w<c.length; w++){
 					if(checkHangulJamo(c[w])){
+						if((int)c[w]<= 0x314E)
+							onlyCon += 1;
 						continue;
 					}
 					int n  = (int)c[w];
