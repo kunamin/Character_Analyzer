@@ -1,7 +1,9 @@
 package org.java.Character_Analyzer;
 
-import java.io.*;
-import org.java.Character_Analyzer.Main;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 public class PrintCSV {
 	
@@ -50,7 +52,8 @@ public class PrintCSV {
 			sum = sum + Analyzer.Col[p];
 		}
 		try{
-			BufferedWriter out = new BufferedWriter(new FileWriter("Result.csv"));
+			BufferedWriter out = new BufferedWriter(new FileWriter("Result.csv", Charset.forName("UTF-8")));
+			out.write("\uFEFF");
 			out.write("Character Analyzer" + Main.main_version); out.newLine();
 			out.write("Version" + Main.Version); out.newLine();
 			out.write("Developed Date, " + Main.Developed_Date); out.newLine();
@@ -70,7 +73,8 @@ public class PrintCSV {
 				}
 			}
 			out.newLine();
-			out.write("글자수, , " + sum);
+			out.write("글자수, , " + sum + ",대화수, , " + Analyzer.cnt_chat); out.newLine();
+			out.write("자음수, , "+ Analyzer.cnt_jamo +",이모티콘수 , , " + Analyzer.cnt_emoticon); out.newLine();
 			out.close();
 		}catch (IOException e){
 			System.err.println(e);

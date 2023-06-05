@@ -1,7 +1,8 @@
 package org.java.Character_Analyzer;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
-import java.io.*;
 
 public class Analyzer {
 	
@@ -9,19 +10,26 @@ public class Analyzer {
 	public static int[] Con1 = new int[19];
 	public static int[] Col = new int[21];
 	public static int[] Con2 = new int[27];
+	public static int cnt_emoticon = 0;
+	public static int cnt_chat = 0;
+	public static int cnt_jamo = 0;
 
 	public static void analyzer(){
 		try{
 			File file = new File("test.txt");
 			Scanner sc = new Scanner(file);
 			while(sc.hasNextLine()){
+				cnt_chat++;
 				String word = sc.nextLine().replaceAll("\\d{4}\\. \\d{1,2}\\. \\d{1,2}\\. (오후|오전) \\d{1,2}:\\d{1,2}\\, (?:[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z]+)?(?:\\(.*\\))? : ", "");
+				if(word.contains("이모티콘"))
+					cnt_emoticon += 1;
 				word = word.replaceAll("(이모티콘|사진)", "");
 				char[] c = word.toCharArray();
 				for(int w = 0; w<c.length; w++){
 					if(checkHangulJamo(c[w])){
-						if((int)c[w]<= 0x314E)
-							onlyCon += 1;
+						if((int)c[w]<= 0x314E) 
+							onlyCon++;
+						cnt_jamo++;
 						continue;
 					}
 					int n  = (int)c[w];
