@@ -1,0 +1,11 @@
+Character Analyzer2.5
+Version : 2.5
+Developed Date : 2023-05-11
+<<New>>
+
+
+<<Changed>>
+
+<<Fixed>>
+We adjusted the scope of the mistake.
+We fixed the problem that the output is wrong.
